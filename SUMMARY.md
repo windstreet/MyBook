@@ -17,3 +17,14 @@
 ---
 
 - [RabbitMQ](RabbitMQ/README.md)
+
+---
+
+- [常用工具](常用工具/README.md)
+    - [npm](常用工具/npm.md)
+    - [proxychains4](常用工具/proxychains4.md)
+
+---
+
+- [小助手](小助手/README.md)
+    - [钉钉红包](小助手/钉钉红包.md)
