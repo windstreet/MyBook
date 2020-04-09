@@ -16,6 +16,11 @@
 
 ---
 
+- [Django](Django/README.md)
+    - [数据库迁移](Django/数据库迁移.md)
+
+---
+
 - [RabbitMQ](RabbitMQ/README.md)
 
 ---
