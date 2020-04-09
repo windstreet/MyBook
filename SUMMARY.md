@@ -45,3 +45,8 @@
 
 - [小助手](小助手/README.md)
     - [钉钉红包](小助手/钉钉红包.md)
+
+---
+
+- [Python脚本](Python脚本/README.md)
+    - [词频分析](Python脚本/词频分析.md)
