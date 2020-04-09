@@ -7,3 +7,5 @@ _book/
 .idea/
 */.idea/
 
+node_modules/
+
