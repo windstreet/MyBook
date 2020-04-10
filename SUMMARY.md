@@ -6,6 +6,7 @@
 
 - [GitBook 从入门到放弃](GitBook 从入门到放弃/README.md)
     - [安装与使用](GitBook 从入门到放弃/安装与使用.md)
+    - [插件](GitBook 从入门到放弃/插件.md)
 
 ---
 
