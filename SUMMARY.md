@@ -18,6 +18,11 @@
 
 ---
 
+- [Python](Python/README.md)
+    - [虚拟环境](Python/虚拟环境.md)
+
+---
+
 - [Django](Django/README.md)
     - [数据库迁移](Django/数据库迁移.md)
     - [Model](Django/Model/README.md)
