@@ -1,5 +1,49 @@
 # youtube 爬虫数据处理
 
+## 合并目录内所有csv文件为一个csv文件
+
+```python
+def main(directory, result_file_name='total'):
+    """
+    将目录内的 相同格式的 csv 文件，合并成一个csv文件
+    """
+
+    import os
+    import pandas as pd
+
+    def run(folder_path):
+        """获取某文件夹下的所有 CSV 的完整路径"""
+
+        if not folder_path.endswith('/'):
+            folder_path = folder_path + '/'
+
+        for file_name in os.listdir(folder_path):
+            # 非文件夹且为csv文件
+            if not os.path.isdir(file_name) and '.csv' in file_name:
+                # csv文件不为空
+                if os.stat(os.path.join(folder_path, file_name)).st_size:
+                    yield os.path.join(folder_path, file_name)
+
+    result_file = os.path.join(directory, '%s.csv' % result_file_name)
+    print u'最终结果文件为：%s' % result_file
+
+    files = list(run(directory))
+    df1 = pd.read_csv(files[0])  # 读取首个csv文件，保存到df1中; encoding='gbk'
+    for f in files[1:]:
+        df2 = pd.read_csv(f)  # 打开csv文件，注意编码问题，保存到df2中
+        df1 = pd.concat([df1, df2], axis=0, ignore_index=True)  # 将df2数据与df1合并
+
+    df1 = df1.drop_duplicates()  # 去重
+    # df1 = df1.reset_index(drop=True)  # 重新生成index
+    df1.to_csv(result_file)  # 将结果保存为新的csv文件
+```
+
+运行
+
+```python
+main(directory='/Users/linrenwei/Desktop/had')
+```
+
 
 ## 合并 `关键字搜索数据` 与 `个人主页数据` 
 ```python
