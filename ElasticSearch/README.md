@@ -1,12 +1,12 @@
 # ElasticSearch
 
-- Api  
+- **Api**  
 删除所有索引 - 慎用 !!!  
 ```bash
 curl -XDELETE 'localhost:9200/*?pretty&pretty'
 ```
 
-* 安装下载信息 
+- **安装下载信息** 
 
 ```bash
 brew info elasticsearch
@@ -17,12 +17,18 @@ Plugins: /usr/local/var/elasticsearch/plugins/
 Config:  /usr/local/etc/elasticsearch/
 ```
 
-* local  
+- **local**  
 http://127.0.0.1:9200   
 http://0.0.0.0:9200/   
 
-* 下载csv     
 
+- **将远程的 es 映射到本地端口**  
+   
 ```bash
-es2csv -u http://192.168.1.10:19200 -i crawler-amazon_bad_review_ca -q '*' -o /Users/linrenwei/Desktop/ca.csv
+proxychains4 ssh -NL 9600:172.31.0.48:9500 root@47.96.95.35
+
 ```
+
+>其中：   
+    proxychains4 嵌套一层代理，访问境外地址会更快速、稳定。     
+    映射到本地 `9600` 端口
