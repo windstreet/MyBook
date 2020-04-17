@@ -10,11 +10,12 @@
 
 ---
 
-- [Git 从入门到放弃](Git 从入门到放弃/README.md)
-    - [0 - Quickstart](Git 从入门到放弃/Quickstart.md)
-    - [1 - 撤销本地修改与回退版本](Git 从入门到放弃/撤销本地修改与回退版本.md)
-    - [2 - 标签](Git 从入门到放弃/标签.md)
-    - [3 - 常见问题](Git 从入门到放弃/常见问题.md)
+- [Git 从入门到放弃](Git/README.md)
+    - [0 - Quickstart](Git/Quickstart.md)
+    - [1 - 安装](Git/安装.md)
+    - [2 - 撤销本地修改与回退版本](Git/撤销本地修改与回退版本.md)
+    - [3 - 标签](Git/标签.md)
+    - [4 - 常见问题](Git/常见问题.md)
 
 ---
 
