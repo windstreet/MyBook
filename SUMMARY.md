@@ -19,6 +19,11 @@
 
 ---
 
+- [workspace](workspace/README.md)
+    - [在新设备开展旧项目](workspace/在新设备开展旧项目.md)
+
+---
+
 - [Python](Python/README.md)
     - [虚拟环境](Python/虚拟环境.md)
 
