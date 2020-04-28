@@ -26,6 +26,8 @@
 
 - [Python](Python/README.md)
     - [虚拟环境](Python/虚拟环境.md)
+    - [sqlalchemy](Python/sqlalchemy/README.md)
+        - [创建表](Python/sqlalchemy/创建表.md)
 
 ---
 
