@@ -21,6 +21,11 @@
 
 - [workspace](workspace/README.md)
     - [在新设备开展旧项目](workspace/在新设备开展旧项目.md)
+    - [goblin](workspace/goblin/README.md)
+        - [测试](workspace/goblin/测试.md)
+    - [overlord](workspace/overlord/README.md)
+        - [项目初始化](workspace/overlord/项目初始化.md)
+        - [资源订阅跑起来](workspace/overlord/资源订阅跑起来.md)
 
 ---
 
