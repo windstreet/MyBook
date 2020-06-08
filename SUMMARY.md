@@ -32,6 +32,7 @@
         - [资源订阅跑起来](workspace/overlord/资源订阅跑起来.md)
     - [switch](workspace/switch/README.md)
         - [初始化](workspace/switch/初始化.md)
+        - [质检入库单](workspace/switch/质检入库单.md)
 
 ---
 
