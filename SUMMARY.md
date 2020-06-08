@@ -21,6 +21,10 @@
 
 - [workspace](workspace/README.md)
     - [在新设备开展旧项目](workspace/在新设备开展旧项目.md)
+    - [weld_backend](workspace/weld_backend/README.md)
+        - [业务知识](workspace/weld_backend/业务知识/README.md)
+            - [质检报告单](workspace/weld_backend/业务知识/质检报告单.md)
+            - [排柜计划](workspace/weld_backend/业务知识/排柜计划.md)
     - [goblin](workspace/goblin/README.md)
         - [测试](workspace/goblin/测试.md)
     - [overlord](workspace/overlord/README.md)
@@ -31,6 +35,8 @@
 
 - [Python](Python/README.md)
     - [虚拟环境](Python/虚拟环境.md)
+    - [依赖包安装](Python/依赖包安装.md)
+    - [编码](Python/编码.md)
     - [sqlalchemy](Python/sqlalchemy/README.md)
         - [创建表](Python/sqlalchemy/创建表.md)
 
