@@ -74,8 +74,9 @@
 
 ---
 
-- [Nginx](/Nginx/README.md)
-    - [安装](/Nginx/安装.md)
+- [Nginx](Nginx/README.md)
+    - [安装](Nginx/安装.md)
+    - [常用命令](Nginx/常用命令.md)
 
 ---
 
