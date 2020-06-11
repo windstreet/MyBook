@@ -74,6 +74,11 @@
 
 ---
 
+- [Nginx](/Nginx/README.md)
+    - [安装](/Nginx/安装.md)
+
+---
+
 - [Linux](Linux/README.md)
     - [ssh](Linux/ssh.md)
 
