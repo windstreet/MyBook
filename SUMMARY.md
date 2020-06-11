@@ -110,3 +110,8 @@
 - [Python脚本](Python脚本/README.md)
     - [词频分析](Python脚本/词频分析.md)
     - [youtube 爬虫数据处理](Python脚本/youtube爬虫数据处理.md)
+
+---
+
+- [项目部署](项目部署/README.md)
+    - [django+uwsgi+nginx部署](项目部署/django+uwsgi+nginx部署.md)
