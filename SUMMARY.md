@@ -115,3 +115,7 @@
 
 - [项目部署](项目部署/README.md)
     - [django+uwsgi+nginx部署](项目部署/django+uwsgi+nginx部署.md)
+    
+---
+
+- [阿里云ECS](阿里云ECS/README.md)
