@@ -29,6 +29,15 @@ sudo apt-get install git
 # 安装 `oh my zsh` 之前需要安装 `git` 工具，因为 `oh my zsh` 托管在 `Github` 上
 wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 
+# 修改 zsh 的界面风格
+vim ~/.zshrc  # ZSH_THEME="bira"
+
+# 然后修改 `shell` 为 `zsh`
+chsh -s `which zsh`
+
+# 重启服务器后修改才能生效
+sudo shutdown -r 0  # 再重新登录就可以看到变化了
+
 
 # 后续工具的安装，需要 `pip` 工具的支持
 sudo apt-get install python-pip
@@ -57,4 +66,12 @@ passwd blue
 ```bash
 # ssh 新用户名@公有ip
 ssh blue@xx.xxx.xxx.xxx
+
+# 紧接着你会遇到一大串的英文，按 `2` 即可。按 `2` 的意思是，使用常用配置项设置好Zsh，这样Zsh就生效可用了。
+
 ```
+
+
+
+
+
