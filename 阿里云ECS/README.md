@@ -61,8 +61,9 @@ passwd blue
 
 ```
 
-## 5、使用 `新用户` 登录服务器
+## 5、使用 `新用户` 登录服务器 并 进行环境搭建
 
+##### 5.1、登录服务器
 ```bash
 # ssh 新用户名@公有ip
 ssh blue@xx.xxx.xxx.xxx
@@ -72,7 +73,76 @@ ssh blue@xx.xxx.xxx.xxx
 # 最好新用户自己安装一下 zsh，然后设置主题
 ```
 
+##### 5.2、创建网站根目录
+```bash
+# 确定在用户号目录下 `/home/blue`
+cd /home/blue
+pwd
 
 
+# 创建工作区域 `/home/blue/workspace`
+mkdir workspace  
 
 
+# 创建网站根目录 `/home/blue/workspace/blog`
+cd workspace blog
+mkdir blog 
+cd blog
+
+# 根目录下新建一个 `logs` 的文件夹，存放日志
+mkdir logs
+
+```
+
+##### 5.3、上传网站文件包。
+
+我使用的是 `Filezilla`，直接`SFTP`到服务器，注意：使用`blue用户` SFTP，别用`root主账号`。
+
+##### 5.3、创建Python的虚拟环境及安装依赖
+```bash
+# 创建虚拟环境
+virtualenv -p /usr/bin/python3 venv
+
+# 进入虚拟环境
+source venv/bin/activate
+
+# 检测环境
+python -V
+
+# 安装上传项目的依赖
+pip install -r requirements.txt
+
+# 安装 Gunicorn
+pip install gunicorn
+```
+
+> 备注：  
+`Gunicorn` 是一个开源Python `WSGI` 服务，另一个选择是 `uWSGI`。       
+后者指不定你见过多少次了，Python或者Flask的入门书里最后的那部分总会提及 `uWSGI`。       
+至于为什么用 `Gunicorn` 而不是后者，因为 `Gunicorn` 简单，好用。    
+
+##### 5.4、配置 `Gunicorn`    
+`Gunicorn` 有很多种配置方式，这里使用的是加载配置文件的方案。
+
+新建 gunicorn.conf 配置文件（在 `/home/blue/workspace/blog` 下）
+```bash
+vim gunicorn.conf   
+```
+
+在编辑文本中输入以下内容  
+```
+# 进程为3，小网站这个数就够了。
+workers = 3
+
+# 监听本地8000端口，之后这个端口来的就是看这个网站的。
+bind = '127.0.0.1:8000'
+```
+
+保存文件，这样最后在网站根目录下有一个gunicorn.conf 的文件。  
+```bash
+pwd
+# /home/blue/workspace/blog
+
+ls  
+# gunicorn.conf  logs  venv
+```
