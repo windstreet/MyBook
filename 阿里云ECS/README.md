@@ -146,3 +146,56 @@ pwd
 ls  
 # gunicorn.conf  logs  venv
 ```
+
+
+---
+
+
+## 6、使用`root账号`安装、配置`Nginx` 
+
+##### 6.1、安装`Nginx`   
+```bash
+sudo apt-get install nginx
+```
+
+>注意：   
+在刚注册阿里云的时候，一般的安全组是系统自动设置的，规则是关闭了80端口。  
+所以在安全组中对80端口放行就可以了。     
+
+[解决阿里云服务器安装nginx不能访问的问题](https://www.jianshu.com/p/0328acae26b0)    
+
+然后就可以访问服务器的 `nginx`服务地址：`共用ip:80`    
+
+
+##### 6.2、配置`Nginx`
+
+```bash
+cd /etc/nginx/sites-available/
+
+# 新建并打开名为blog的配置文件
+touch blog
+vim blog
+```
+
+输入以下内容：   
+```
+   server {
+        listen   80;
+        server_name www.xxx.com xxx.com;
+
+        root /home/blue/workspace/blog;
+        access_log /home/blue/workspace/blog/logs/access.log;
+        error_log /home/blue/workspace/blog/logs/access.log;
+
+        location / {
+            proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
+            proxy_set_header Host $http_host;
+            proxy_redirect off;
+            if (!-f $request_filename) {
+                proxy_pass http://127.0.0.1:8000;
+                break;
+            }
+        }
+    }
+```
+
