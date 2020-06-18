@@ -201,3 +201,30 @@ root@551ecb75f44e:/#
 docker container kill 551ecb75f44e
 ```
 
+
+---
+
+
+## 九、容器文件
+- image 文件生成的`容器实例`，本身也是一个文件，称为`容器文件`。     
+- 也就是说，一旦容器生成，就会同时存在两个文件： `image 文件` 和 `容器文件`。      
+- 而且关闭容器并不会删除容器文件，只是容器停止运行而已。
+
+##### 9.1、列出容器文件
+```bash
+# 列出本机正在运行的容器
+docker container ls
+
+# 列出本机所有容器，包括终止运行的容器
+docker container ls --all
+```
+
+>上面命令的输出结果之中，包括容器的 ID（`CONTAINER ID`）。
+
+
+##### 9.2、删除容器文件
+终止运行的容器文件，依然会占据硬盘空间。
+
+```bash
+docker container rm [containerID]
+```
