@@ -93,3 +93,111 @@ docker version
 docker info
 ```
 
+
+---
+
+
+## 七、image 文件
+
+- Docker 把应用程序及其依赖，打包在 image 文件里面。
+
+- 只有通过这个文件，才能生成 Docker 容器。
+
+- image 文件可以看作是容器的模板。
+
+- Docker 根据 image 文件生成容器的实例。同一个 image 文件，可以生成多个同时运行的容器实例。
+
+- image 是二进制文件。
+
+- 实际开发中，一个 image 文件往往通过继承另一个 image 文件，加上一些个性化设置而生成。举例来说，你可以在 Ubuntu 的 image 基础上，往里面加入 Apache 服务器，形成你的 image。
+
+```bash
+# 列出本机的所有 image 文件。
+docker images
+docker image ls
+
+
+# 删除 image 文件
+docker image rm [imageName]
+```
+
+>补充：   
+image 文件是通用的，一台机器的 image 文件拷贝到另一台机器，照样可以使用。  
+一般来说，为了节省时间，我们应该尽量使用别人制作好的 image 文件，而不是自己制作。   
+即使要定制，也应该基于别人的 image 文件进行加工，而不是从零开始制作。   
+为了方便共享，image 文件制作完成后，可以上传到网上的仓库。   
+Docker 的官方仓库 [Docker Hub](https://hub.docker.com/) 是最重要、最常用的 image 仓库。   
+此外，出售自己制作的 image 文件也是可以的。
+
+
+---
+
+
+## 八、实例：hello world   
+以最简单的 image 文件 ["hello world"](https://hub.docker.com/_/hello-world)，感受一下 Docker。
+
+>特别说明：  
+国内连接 Docker 的官方仓库很慢，还会断线。   
+解决办法：(1) 将默认仓库改成国内的镜像网站; (2)使用终端代理工具 `proxychains4`
+
+##### 8.1、将`image`文件从仓库抓取到本地
+
+```bash
+docker image pull library/hello-world
+# 或者
+docker image pull hello-world
+```
+
+>注解：   
+`docker image pull` 是抓取 image 文件的命令。     
+`library/hello-world` 是 image 文件在仓库里面的位置。      
+`library` 是 image 文件所在的组。    
+`hello-world` 是 image 文件的名字。     
+由于 Docker 官方提供的 image 文件，都放在library组里面，它是默认组，所以可以省略。
+
+##### 8.2、运行这个`image`文件   
+```bash
+docker container run hello-world
+
+# Hello from Docker!
+# This message shows that your installation appears to be working correctly.
+#
+# ... ...
+```
+
+>注解：   
+`docker container run` 命令会从 image 文件，生成一个正在运行的`容器实例`。 
+`docker container run` 命令具有自动抓取 image 文件的功能。     
+如果发现本地没有指定的 image 文件，就会从仓库自动抓取。因此，前面的`docker image pull`命令并不是必需的步骤。
+
+输出这段提示以后，hello world就会停止运行，容器`自动终止`。
+
+##### 8.3、有些容器不会自动终止，因为提供的是服务。  
+比如，安装运行 Ubuntu 的 image，就可以在命令行体验 Ubuntu 系统。
+
+```bash
+docker container run -it ubuntu bash
+
+# 先前本地获取的旧image
+docker container run -it ubuntu:16.04 bash
+```
+
+>注解：      
+`ubuntu:16.04` 即表示 `REPOSITORY:TAG`。       
+若只填 `ubuntu` 则默认使用最新的image `ubuntu:latest`，会从线上仓库下载。
+
+##### 8.4、强制终止容器
+
+对于那些不会自动终止的容器，必须使用 `docker container kill [containID]` 命令手动终止。（貌似输入 `exit` 也能退出）
+
+```bash
+╭─xxx@xx ~/funny/django-example ‹master›
+╰─$ docker container run -it ubuntu:16.04 bash             
+root@551ecb75f44e:/#
+root@551ecb75f44e:/#
+root@551ecb75f44e:/#
+
+# 另外起一个终端
+docker container kill 551ecb75f44e
+```
+
