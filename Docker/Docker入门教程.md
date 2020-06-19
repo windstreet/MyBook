@@ -300,3 +300,63 @@ docker image build -t koa-demo:0.0.1 .
 docker image ls
 ```
 
+>可能遇到的问题：   
+macOS: [Docker Mac OS 下链接不上docker hub错误](https://www.jianshu.com/p/646610c781b1)    
+国内的`image`仓库的镜像网址："https://registry.docker-cn.com"
+
+##### 11.3、生成容器
+
+- 执行命令生成容器
+```bash
+docker container run -p 8000:3000 -it koa-demo /bin/bash
+# 或者
+docker container run -p 8000:3000 -it koa-demo:0.0.1 /bin/bash
+```
+>注解：    
+(1)`docker container run`命令会从`image`文件生成容器。      
+(2)`-p`参数：容器的`3000`端口映射到本机的`8000`端口。         
+(3)`-it`参数：容器的`Shell`映射到当前的`Shell`，然后你在本机窗口输入的命令，就会传入容器。       
+(4)`koa-demo:0.0.1`：`image`文件的名字（如果有标签，还需要提供标签，默认是`latest`标签）。     
+(5)`/bin/bash`：容器启动以后，内部第一个执行的命令。这里是`启动Bash`，保证用户可以使用`Shell`。       
+
+- 如果一切正常，运行上面的命令以后，就会返回一个命令行提示符。   
+```bash
+root@66d80f4aaf1e:/app#
+```
+
+- 这表示你已经在容器里面了，返回的提示符就是容器内部的`Shell`提示符。执行下面的命令。
+```bash
+root@66d80f4aaf1e:/app# node demos/01.js
+```
+>注解：   
+(1)这时，`Koa`框架已经运行起来了。打开本机的浏览器，访问`http://127.0.0.1:8000`，网页显示"Not Found"，这是因为这个demo没有写路由。   
+(2)这个例子中，`Node进程`运行在`Docker容器的虚拟环境`里面，进程接触到的文件系统和网络接口都是虚拟的，与本机的文件系统和网络接口是隔离的，因此需要定义`容器与物理机的端口映射`（map）。
+
+
+- 停止/退出容器运行
+在容器的命令行，按下 `Ctrl + c` 停止 Node 进程，然后按下 `Ctrl + d` （或者输入 `exit`）退出容器。此外，也可以用如下命令：        
+
+```bash
+# 在本机的另一个终端窗口，查出容器的 ID
+docker container ls
+
+# 停止指定的容器运行
+docker container kill [containerID]
+```
+
+
+- 删除容器文件  
+
+```bash
+# 容器停止运行之后，并不会消失，需要自己删除。
+
+# 查出容器的 ID
+docker container ls --all
+
+# 删除指定的容器文件
+docker container rm [containerID]
+
+
+# 也可以使用docker container run命令的--rm参数，在容器终止运行后自动删除容器文件。
+docker container run --rm -p 8000:3000 -it koa-demo /bin/bash
+```
