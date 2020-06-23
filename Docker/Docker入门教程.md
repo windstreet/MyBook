@@ -338,29 +338,32 @@ root@66d80f4aaf1e:/app# node demos/01.js
     ```bash
     docker container kill [containerID]
     ```
->其他方式：在容器的命令行，按下 `Ctrl + c` 停止 Node 进程，然后按下 `Ctrl + d` （或者输入 `exit`）退出容器。
+
+    - 其他方式    
+    在容器的命令行，按下 `Ctrl + c` 停止 Node 进程，然后按下 `Ctrl + d` （或者输入 `exit`）退出容器。
 
 
-- 删除容器文件  
-
-```bash
-# 容器停止运行之后，并不会消失，需要自己删除。
-
-# 查出容器的 ID
-docker container ls --all
-
-# 删除指定的容器文件
-docker container rm [containerID]
-
-
-# 也可以使用docker container run命令的--rm参数，在容器终止运行后自动删除容器文件。
-docker container run --rm -p 8000:3000 -it koa-demo /bin/bash
-```
+- 删除容器文件
+    - 容器停止运行之后，并不会消失，需要自己删除。
+    
+    - 查出容器的ID
+    ```bash
+    docker container ls --all
+    ```
+    
+    - 删除指定的容器文件
+    ```bash
+    docker container rm [containerID]
+    ```
+    
+    - 也可以使用 `docker container run` 命令的 __`--rm`__ 参数，在容器终止运行后自动删除容器文件。
+    ```bash
+    docker container run --rm -p 8000:3000 -it koa-demo /bin/bash
+    ```
 
 ##### 11.4、 `CMD`命令       
 - 上一节的例子里面，容器启动以后，需要手动输入命令`node demos/01.js`。
 - 我们可以把这个命令写在`Dockerfile文件`里面，这样容器启动以后，这个命令就已经执行了，不用再手动输入了。
-
 ```
 FROM node:8.4
 COPY . /app
@@ -378,7 +381,7 @@ CMD node demos/01.js
     - 另外，一个 `Dockerfile` 可以包含多个`RUN`命令，但是只能有一个`CMD`命令。    
     - 注意，指定了`CMD`命令以后，`docker container run`命令就不能附加命令了（比如前面的`/bin/bash`），否则它会覆盖`CMD`命令。    
     
-现在，启动容器可以使用下面的命令：    
+- 现在，启动容器可以使用下面的命令：    
 ```bash
 docker container run --rm -p 8000:3000 -it koa-demo:0.0.1
 ```
