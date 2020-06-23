@@ -328,17 +328,17 @@ root@66d80f4aaf1e:/app# node demos/01.js
 （1）这时，`Koa`框架已经运行起来了。打开本机的浏览器，访问`http://127.0.0.1:8000`，网页显示"Not Found"，这是因为这个demo没有写路由。   
 （2）这个例子中，`Node进程`运行在`Docker容器的虚拟环境`里面，进程接触到的文件系统和网络接口都是虚拟的，与本机的文件系统和网络接口是隔离的，因此需要定义`容器与物理机的端口映射`（map）。
 
-
 - 停止/退出容器运行
-在容器的命令行，按下 `Ctrl + c` 停止 Node 进程，然后按下 `Ctrl + d` （或者输入 `exit`）退出容器。此外，也可以用如下命令：        
+    - 在本机的另一个终端窗口，查出容器的 ID
+    ```bash
+    docker container ls
+    ```
 
-```bash
-# 在本机的另一个终端窗口，查出容器的 ID
-docker container ls
-
-# 停止指定的容器运行
-docker container kill [containerID]
-```
+    - 停止指定的容器运行
+    ```bash
+    docker container kill [containerID]
+    ```
+>其他方式：在容器的命令行，按下 `Ctrl + c` 停止 Node 进程，然后按下 `Ctrl + d` （或者输入 `exit`）退出容器。
 
 
 - 删除容器文件  
