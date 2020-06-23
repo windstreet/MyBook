@@ -255,18 +255,18 @@ cd koa-demos
 ```
 
 ##### 11.1、编写`Dockerfile`文件
-+ 首先，在项目的`根目录`下，新建一个文本文件`.dockerignore`，写入下面的内容。   
++ 首先，在项目的 __`根目录`__ 下，新建一个文本文件 __`.dockerignore`__，写入下面的内容。   
 ```
 .git
 node_modules
 npm-debug.log
 ```
 >注解：   
-上面代码表示，这三个路径要排除，不要打包进入 image 文件。   
-如果你没有路径要排除，这个文件可以不新建。
+（1）上面代码表示，这三个路径要排除，不要打包进入 image 文件。   
+（2）如果你没有路径要排除，这个文件可以不新建。
 
 
-+ 然后，在项目的`根目录`下，新建一个文本文件 `Dockerfile`，写入下面的内容。        
++ 然后，在项目的 __`根目录`__ 下，新建一个文本文件 __`Dockerfile`__，写入下面的内容。        
 ```
 FROM node:8.4
 COPY . /app
@@ -275,32 +275,30 @@ RUN npm install --registry=https://registry.npm.taobao.org
 EXPOSE 3000
 ```
 >含义：     
-(1)`FROM node:8.4`：该`image`文件继承官方的`node image`，冒号后表示标签，即`8.4版本的node`。            
-(2)`COPY . /app`：将`当前目录下的所有文件`（除了`.dockerignore`排除的路径），都拷贝进入 `image 文件的/app目录`。        
-(3)`WORKDIR /app`：指定接下来的`工作路径`为`/app`。         
-(4)`RUN npm install`：在`/app目录`（上一步指定的工作路径）下，运行`npm install`命令安装依赖。注意，安装后所有的依赖，都将打包进入`image`文件。       
-(5)`EXPOSE 3000`：将容器`3000`端口暴露出来，允许外部连接这个端口。      
+（1）`FROM node:8.4`：该`image`文件继承官方的`node image`，冒号后表示标签，即`8.4版本的node`。            
+（2）`COPY . /app`：将`当前目录下的所有文件`（除了`.dockerignore`排除的路径），都拷贝进入 `image 文件的/app目录`。        
+（3）`WORKDIR /app`：指定接下来的`工作路径`为`/app`。         
+（4）`RUN npm install`：在`/app目录`（上一步指定的工作路径）下，运行`npm install`命令安装依赖。注意，安装后所有的依赖，都将打包进入`image`文件。       
+（5）`EXPOSE 3000`：将容器`3000`端口暴露出来，允许外部连接这个端口。      
 
 ##### 11.2、创建`image`文件
-有了`Dockerfile`文件以后，就可以使用`docker image build`命令创建`image`文件了。
-
+- 有了`Dockerfile`文件以后，就可以使用`docker image build`命令创建`image`文件了。
 ```bash
 docker image build -t koa-demo .
 # 或者
 docker image build -t koa-demo:0.0.1 .
 ```
 >注解：      
-(1)`-t`参数：用来指定 image 文件的名字，后面还可以`用冒号指定标签`。如果不指定，`默认的标签就是latest`。      
-(2)`最后的那个点`：表示`Dockerfile`文件所在的路径，上例是当前路径，所以是一个点。   
+（1）__`-t`参数__：用来指定 image 文件的名字，后面还可以`用冒号指定标签`。如果不指定，`默认的标签就是latest`。      
+（2）__`最后的那个点`__：表示`Dockerfile`文件所在的路径，上例是当前路径，所以是一个点。   
 
-如果运行成功，就可以看到新生成的`image`文件`koa-demo`了。    
+- 如果运行成功，就可以看到新生成的`image`文件`koa-demo`了。    
 ```bash
 docker image ls
 ```
-
 >可能遇到的问题：   
-macOS: [Docker Mac OS 下链接不上docker hub错误](https://www.jianshu.com/p/646610c781b1)    
-国内的`image`仓库的镜像网址："https://registry.docker-cn.com"
+（1）macOS: [Docker Mac OS 下链接不上docker hub错误](https://www.jianshu.com/p/646610c781b1)    
+（2）国内的`image`仓库的镜像网址："https://registry.docker-cn.com"
 
 ##### 11.3、生成容器
 
