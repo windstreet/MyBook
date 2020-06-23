@@ -360,3 +360,32 @@ docker container rm [containerID]
 # 也可以使用docker container run命令的--rm参数，在容器终止运行后自动删除容器文件。
 docker container run --rm -p 8000:3000 -it koa-demo /bin/bash
 ```
+
+##### 11.4、 `CMD`命令       
+- 上一节的例子里面，容器启动以后，需要手动输入命令`node demos/01.js`。
+- 我们可以把这个命令写在`Dockerfile文件`里面，这样容器启动以后，这个命令就已经执行了，不用再手动输入了。
+
+```
+FROM node:8.4
+COPY . /app
+WORKDIR /app
+RUN npm install --registry=https://registry.npm.taobao.org
+EXPOSE 3000
+CMD node demos/01.js
+```
+>注解：    
+`CMD node demos/01.js`，表示容器启动后自动执行 `node demos/01.js`
+
+- `RUN命令`与`CMD命令`的区别在哪里？     
+    - `RUN命令`在 `image` 文件的构建阶段执行，执行结果都会打包进入 `image` 文件；    
+    - `CMD命令` 则是在容器启动后执行。    
+    - 另外，一个 `Dockerfile` 可以包含多个`RUN`命令，但是只能有一个`CMD`命令。    
+    - 注意，指定了`CMD`命令以后，`docker container run`命令就不能附加命令了（比如前面的`/bin/bash`），否则它会覆盖`CMD`命令。    
+    
+现在，启动容器可以使用下面的命令：    
+```bash
+docker container run --rm -p 8000:3000 -it koa-demo:0.0.1
+```
+
+
+
