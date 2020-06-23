@@ -143,19 +143,17 @@ docker image rm [imageName]
 解决办法：(1) 将默认仓库改成国内的镜像网站; (2)使用终端代理工具 `proxychains4`
 
 ##### 8.1、将`image`文件从仓库抓取到本地
-
 ```bash
 docker image pull library/hello-world
 # 或者
 docker image pull hello-world
 ```
-
 >注解：   
-`docker image pull` 是抓取 image 文件的命令。     
-`library/hello-world` 是 image 文件在仓库里面的位置。      
-`library` 是 image 文件所在的组。    
-`hello-world` 是 image 文件的名字。     
-由于 Docker 官方提供的 image 文件，都放在library组里面，它是默认组，所以可以省略。
+（1）__`docker image pull`__ 是抓取 image 文件的命令。     
+（2）__`library/hello-world`__ 是 image 文件在仓库里面的位置。      
+（3）__`library`__ 是 image 文件所在的组。    
+（4）__`hello-world`__ 是 image 文件的名字。     
+（5）由于 Docker 官方提供的 image 文件，都放在library组里面，它是默认组，所以可以省略。
 
 ##### 8.2、运行这个`image`文件   
 ```bash
@@ -166,13 +164,11 @@ docker container run hello-world
 #
 # ... ...
 ```
-
 >注解：   
-`docker container run` 命令会从 image 文件，生成一个正在运行的`容器实例`。 
-`docker container run` 命令具有自动抓取 image 文件的功能。     
-如果发现本地没有指定的 image 文件，就会从仓库自动抓取。因此，前面的`docker image pull`命令并不是必需的步骤。
-
-输出这段提示以后，hello world就会停止运行，容器`自动终止`。
+（1）`docker container run` 命令会从 image 文件，生成一个正在运行的`容器实例`。    
+（2）`docker container run` 命令具有自动抓取 image 文件的功能。       
+（3）如果发现本地没有指定的 image 文件，就会从仓库自动抓取。因此，前面的`docker image pull`命令并不是必需的步骤。     
+（4）输出这段提示以后，hello world就会停止运行，容器`自动终止`。    
 
 ##### 8.3、有些容器不会自动终止，因为提供的是服务。  
 比如，安装运行 Ubuntu 的 image，就可以在命令行体验 Ubuntu 系统。
@@ -185,8 +181,8 @@ docker container run -it ubuntu:16.04 bash
 ```
 
 >注解：      
-`ubuntu:16.04` 即表示 `REPOSITORY:TAG`。       
-若只填 `ubuntu` 则默认使用最新的image `ubuntu:latest`，会从线上仓库下载。
+（1）`ubuntu:16.04` 即表示 `REPOSITORY:TAG`。       
+（2）若只填 `ubuntu` 则默认使用最新的image `ubuntu:latest`，会从线上仓库下载。
 
 ##### 8.4、强制终止容器
 
