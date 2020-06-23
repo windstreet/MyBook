@@ -388,4 +388,82 @@ docker container run --rm -p 8000:3000 -it koa-demo:0.0.1
 ```
 
 
+##### 11.5、发布`image`文件（略）    
+如何把`image文件`分享到网上，让其他人使用？
 
+首先，去 [hub.docker.com](https://hub.docker.com/) 或 [cloud.docker.com](https://cloud.docker.com/) 注册一个账户。
+   
+```bash
+# 然后，用下面的命令登录： 
+docker login
+
+
+# 接着，为本地的 image 标注用户名和版本。
+docker image tag [imageName] [username]/[repository]:[tag]
+# 实例
+docker image tag koa-demos:0.0.1 ruanyf/koa-demos:0.0.1
+
+
+# 也可以不标注用户名，重新构建一下 image 文件。
+docker image build -t [username]/[repository]:[tag] .
+
+
+# 最后，发布 image 文件。
+docker image push [username]/[repository]:[tag]
+
+
+# 发布成功以后，登录 `hub.docker.com`，就可以看到已经发布的 image 文件。
+```
+
+
+---
+
+
+## 十二、其他有用的命令
+
+##### （1）`docker container start`   
+- 前面的`docker container run`命令是`新建容器`，每运行一次，就会新建一个容器。    
+- 同样的命令运行两次，就会生成两个一模一样的容器文件。      
+- 如果希望重复使用容器，就要使用`docker container start`命令，它用来启动已经生成、已经停止运行的容器文件。
+```bash
+docker container start [containerID]
+```
+            
+#####（2）`docker container stop`
+
+- 前面的`docker container kill`命令`终止容器运行`，相当于向容器里面的主进程发出`SIGKILL`信号。
+- 而`docker container stop`命令也是用来终止容器运行，相当于向容器里面的主进程发出`SIGTERM`信号，然后过一段时间再发出`SIGKILL`信号。
+```bash
+bash container stop [containerID]
+```
+>注意：    
+（1）这两个信号的差别是，应用程序收到`SIGTERM信号`以后，可以自行进行收尾清理工作，但也可以不理会这个信号。  
+（2）如果收到`SIGKILL信号`，就会强行立即终止，那些正在进行中的操作会全部丢失。    
+
+#####（3）`docker container logs`   
+- `docker container logs`命令用来查看`docker`容器的输出，即容器里面`Shell`的标准输出。   
+- 如果`docker run`命令运行容器的时候，没有使用`-it参数`，就要用这个命令查看输出。
+```bash
+docker container logs [containerID]
+```
+
+
+#####（4）`docker container exec`
+
+- `docker container exec`命令用于进入一个正在运行的 `docker` 容器。    
+- 如果`docker run`命令运行容器的时候，没有使用`-it参数`，就要用这个命令进入容器。    
+- 一旦进入了容器，就可以在容器的`Shell`执行命令了。
+```bash
+docker container exec -it [containerID] /bin/bash
+```
+ 
+#####（5）`docker container cp`
+
+- `docker container cp`命令用于从正在运行的`Docker`容器里面，将文件拷贝到本机。下面是拷贝`到当前目录`的写法。
+```bash
+docker container cp [containID]:[/path/to/file] .
+```
+
+---
+
+[转载](http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html)
