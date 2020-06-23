@@ -275,11 +275,11 @@ RUN npm install --registry=https://registry.npm.taobao.org
 EXPOSE 3000
 ```
 >含义：     
-（1）`FROM node:8.4`：该`image`文件继承官方的`node image`，冒号后表示标签，即`8.4版本的node`。            
-（2）`COPY . /app`：将`当前目录下的所有文件`（除了`.dockerignore`排除的路径），都拷贝进入 `image 文件的/app目录`。        
-（3）`WORKDIR /app`：指定接下来的`工作路径`为`/app`。         
-（4）`RUN npm install`：在`/app目录`（上一步指定的工作路径）下，运行`npm install`命令安装依赖。注意，安装后所有的依赖，都将打包进入`image`文件。       
-（5）`EXPOSE 3000`：将容器`3000`端口暴露出来，允许外部连接这个端口。      
+（1）__`FROM node:8.4`__：该`image`文件继承官方的`node image`，冒号后表示标签，即`8.4版本的node`。            
+（2）__`COPY . /app`__：将`当前目录下的所有文件`（除了`.dockerignore`排除的路径），都拷贝进入 `image 文件的/app目录`。        
+（3）__`WORKDIR /app`__：指定接下来的`工作路径`为`/app`。         
+（4）__`RUN npm install`__：在`/app目录`（上一步指定的工作路径）下，运行`npm install`命令安装依赖。注意，安装后所有的依赖，都将打包进入`image`文件。       
+（5）__`EXPOSE 3000`__：将容器`3000`端口暴露出来，允许外部连接这个端口。      
 
 ##### 11.2、创建`image`文件
 - 有了`Dockerfile`文件以后，就可以使用`docker image build`命令创建`image`文件了。
@@ -309,11 +309,11 @@ docker container run -p 8000:3000 -it koa-demo /bin/bash
 docker container run -p 8000:3000 -it koa-demo:0.0.1 /bin/bash
 ```
 >注解：    
-(1)`docker container run`命令会从`image`文件生成容器。      
-(2)`-p`参数：容器的`3000`端口映射到本机的`8000`端口。         
-(3)`-it`参数：容器的`Shell`映射到当前的`Shell`，然后你在本机窗口输入的命令，就会传入容器。       
-(4)`koa-demo:0.0.1`：`image`文件的名字（如果有标签，还需要提供标签，默认是`latest`标签）。     
-(5)`/bin/bash`：容器启动以后，内部第一个执行的命令。这里是`启动Bash`，保证用户可以使用`Shell`。       
+（1）__`docker container run`命令__ 会从`image`文件生成容器。      
+（2）__`-p`参数__：容器的`3000`端口映射到本机的`8000`端口。         
+（3）__`-it`参数__：容器的`Shell`映射到当前的`Shell`，然后你在本机窗口输入的命令，就会传入容器。       
+（4）__`koa-demo:0.0.1`__：`image`文件的名字（如果有标签，还需要提供标签，默认是`latest`标签）。     
+（5）__`/bin/bash`__：容器启动以后，内部第一个执行的命令。这里是`启动Bash`，保证用户可以使用`Shell`。       
 
 - 如果一切正常，运行上面的命令以后，就会返回一个命令行提示符。   
 ```bash
@@ -325,8 +325,8 @@ root@66d80f4aaf1e:/app#
 root@66d80f4aaf1e:/app# node demos/01.js
 ```
 >注解：   
-(1)这时，`Koa`框架已经运行起来了。打开本机的浏览器，访问`http://127.0.0.1:8000`，网页显示"Not Found"，这是因为这个demo没有写路由。   
-(2)这个例子中，`Node进程`运行在`Docker容器的虚拟环境`里面，进程接触到的文件系统和网络接口都是虚拟的，与本机的文件系统和网络接口是隔离的，因此需要定义`容器与物理机的端口映射`（map）。
+（1）这时，`Koa`框架已经运行起来了。打开本机的浏览器，访问`http://127.0.0.1:8000`，网页显示"Not Found"，这是因为这个demo没有写路由。   
+（2）这个例子中，`Node进程`运行在`Docker容器的虚拟环境`里面，进程接触到的文件系统和网络接口都是虚拟的，与本机的文件系统和网络接口是隔离的，因此需要定义`容器与物理机的端口映射`（map）。
 
 
 - 停止/退出容器运行
