@@ -11,10 +11,10 @@ def list_to_csv(list_obj, out_csv):
         writer = csv.DictWriter(outfile, fieldnames=['country_code', 'asin'])
         writer.writeheader()
         for i in list_obj:
-        writer.writerow({'country_code': 'US', 'asin': i})
+            writer.writerow({'country_code': 'US', 'asin': i})
 
 
-import panda as pd
+import pandas as pd
 res = pd.read_excel('/Users/linrenwei/Desktop/us-asin.xlsx')
 for fn in res.columns:
     new_fn = fn.replace('/', ' ')
