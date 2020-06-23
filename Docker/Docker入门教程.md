@@ -97,13 +97,13 @@ docker info
 ---
 
 
-## 七、image 文件
+## 七、`image`文件（镜像文件）
 
 - Docker 把应用程序及其依赖，打包在 image 文件里面。
 
-- 只有通过这个文件，才能生成 Docker 容器。
+- __只有通过这个文件，才能生成`Docker容器`__。
 
-- image 文件可以看作是容器的模板。
+- image文件可以看作是 __容器的模板__。
 
 - Docker 根据 image 文件生成容器的实例。同一个 image 文件，可以生成多个同时运行的容器实例。
 
@@ -111,23 +111,25 @@ docker info
 
 - 实际开发中，一个 image 文件往往通过继承另一个 image 文件，加上一些个性化设置而生成。举例来说，你可以在 Ubuntu 的 image 基础上，往里面加入 Apache 服务器，形成你的 image。
 
+##### 7.1、列出本机的所有image文件
 ```bash
-# 列出本机的所有 image 文件。
 docker images
+# 或者
 docker image ls
+```
 
-
-# 删除 image 文件
+##### 7.2、删除image文件
+```bash
 docker image rm [imageName]
 ```
 
 >补充：   
-image 文件是通用的，一台机器的 image 文件拷贝到另一台机器，照样可以使用。  
-一般来说，为了节省时间，我们应该尽量使用别人制作好的 image 文件，而不是自己制作。   
-即使要定制，也应该基于别人的 image 文件进行加工，而不是从零开始制作。   
-为了方便共享，image 文件制作完成后，可以上传到网上的仓库。   
-Docker 的官方仓库 [Docker Hub](https://hub.docker.com/) 是最重要、最常用的 image 仓库。   
-此外，出售自己制作的 image 文件也是可以的。
+（1）image 文件是通用的，一台机器的 image 文件拷贝到另一台机器，照样可以使用。  
+（2）一般来说，为了节省时间，我们应该尽量使用别人制作好的 image 文件，而不是自己制作。   
+（3）即使要定制，也应该基于别人的 image 文件进行加工，而不是从零开始制作。   
+（4）为了方便共享，image 文件制作完成后，可以上传到网上的仓库。   
+（5）Docker 的官方仓库 [Docker Hub](https://hub.docker.com/) 是最重要、最常用的 image 仓库。   
+（6）此外，出售自己制作的 image 文件也是可以的。
 
 
 ---
