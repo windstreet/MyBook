@@ -23,6 +23,47 @@ for fn in res.columns:
     list_to_csv(list(res[fn]), fn_path)
 ```
 
+- `xlsx`格式，一张表一类asin  
+
+```python
+
+def run(country_code=u'US',
+        filename=u'/Users/linrenwei/Desktop/11.xlsx',
+        output_dir=u'/Users/linrenwei/Desktop/1'):
+
+    import pandas as pd
+    import os
+
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
+        print u'新建目录：%s' % output_dir
+    else:
+        print u'目录已存在'
+
+    def list_to_csv(list_obj, out_csv):
+        import csv
+        with open(out_csv, u'wb') as outfile:
+            writer = csv.DictWriter(outfile, fieldnames=['country_code', 'asin'])
+            writer.writeheader()
+            for i in list_obj:
+                writer.writerow({'country_code': country_code, 'asin': i})
+
+    res = pd.read_excel(filename, sheet_name=None)
+    for sheet_name in res.keys():
+        sheet_path = os.path.join(output_dir, u'%s.csv' % sheet_name)
+        print sheet_name
+        print sheet_path
+
+        sheet_res = pd.read_excel(filename, sheet_name=sheet_name)
+        sheet_list = list()
+        for column_name in sheet_res.columns:
+            print column_name
+            sheet_list = sheet_list + list(sheet_res[column_name])
+
+        list_to_csv(sheet_list, sheet_path)
+        print '============================'
+
+```
 
 - 处理合并（挂单时间）后的数据      
      
