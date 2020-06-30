@@ -115,6 +115,8 @@
 ---
 
 - [Python脚本](Python脚本/README.md)
+    - [list对象操作](Python脚本/list对象操作/README.md)
+        - [list分组](Python脚本/list对象操作/list分组.md)
     - [词频分析](Python脚本/词频分析.md)
     - [youtube 爬虫数据处理](Python脚本/youtube爬虫数据处理.md)
     - [asin爬虫数据处理](Python脚本/asin爬虫数据处理.md)
