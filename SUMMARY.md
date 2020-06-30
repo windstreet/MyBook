@@ -25,6 +25,7 @@
     - [aide_backend](workspace/aide_backend/README.md)
         - [与前端对接](workspace/aide_backend/与前端对接.md)
         - [创建用户账号](workspace/aide_backend/创建用户账号.md)
+        - [向装饰器传递参数](workspace/aide_backend/向装饰器传递参数.md)
     - [weld_backend](workspace/weld_backend/README.md)
         - [业务知识](workspace/weld_backend/业务知识/README.md)
             - [质检报告单](workspace/weld_backend/业务知识/质检报告单.md)
@@ -44,6 +45,7 @@
     - [虚拟环境](Python/虚拟环境.md)
     - [依赖包安装](Python/依赖包安装.md)
     - [编码](Python/编码.md)
+    - [flask](Python/flask/README.md)
     - [sqlalchemy](Python/sqlalchemy/README.md)
         - [创建表](Python/sqlalchemy/创建表.md)
 
