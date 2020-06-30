@@ -24,6 +24,7 @@
     - [在新设备开展旧项目](workspace/在新设备开展旧项目.md)
     - [aide_backend](workspace/aide_backend/README.md)
         - [与前端对接](workspace/aide_backend/与前端对接.md)
+        - [创建用户账号](workspace/aide_backend/创建用户账号.md)
     - [weld_backend](workspace/weld_backend/README.md)
         - [业务知识](workspace/weld_backend/业务知识/README.md)
             - [质检报告单](workspace/weld_backend/业务知识/质检报告单.md)
