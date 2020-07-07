@@ -59,6 +59,8 @@
 ---
 
 - [sql](SQL/README.md)
+    - [命令行工具psql](SQL/命令行工具psql/README.md)
+        - [简介](SQL/命令行工具psql/简介.md)
     - [高级部分](SQL/高级部分/README.md)
         - [视图view](SQL/高级部分/视图view.md)
         - [函数](SQL/高级部分/函数.md)
