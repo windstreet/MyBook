@@ -45,6 +45,8 @@
     - [虚拟环境](Python/虚拟环境.md)
     - [依赖包安装](Python/依赖包安装.md)
     - [编码](Python/编码.md)
+    - [pika](Python/pika/README.md)
+        - [QuickStart](Python/pika/QuickStart.md)
     - [flask](Python/flask/README.md)
     - [sqlalchemy](Python/sqlalchemy/README.md)
         - [创建表](Python/sqlalchemy/创建表.md)
