@@ -100,3 +100,32 @@ def callback(ch, method, properties, body):
 
 channel.basic_consume(callback, queue='hello', no_ack=False)
 ```
+
+##### 4.2、`durable`消息不丢失
+```python
+# 对于生产者 or 消费者
+channel.queue_declare(queue='hello', durable=True)  # make message persistent
+
+# 对于消费者
+channel.basic_publish(exchange='',
+                      routing_key='hello',
+                      body='Hello World!',
+                      properties=pika.BasicProperties(
+                          delivery_mode=2, # make message persistent
+                      ))
+```
+
+##### 4.3、消息获取顺序
+- 默认消息队列里的数据是按照顺序被消费者拿走。
+- 例如：`消费者1` 去队列中获取 `奇数` 序列的任务，`消费者2` 去队列中获取 `偶数` 序列的任务。
+- `channel.basic_qos(prefetch_count=1)` 表示谁来谁取，不再按照奇偶数排列。
+
+```python
+# 消费者
+channel = connection.channel()
+channel.queue_declare(queue='hello')
+channel.basic_qos(prefetch_count=1)
+# .
+# .
+# .
+```
