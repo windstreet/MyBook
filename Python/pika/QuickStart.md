@@ -75,3 +75,28 @@ channel.start_consuming()
 >注意：     
 这里生产者和消费者都创建了同名的队列，其实谁来创建队列，都无所谓，只要保证队列存在就可以了！    
 这样无论两者谁先执行都不会报错。
+
+
+## 4、相关参数
+
+##### 4.1、`no_ack=False`
+如果消费者遇到情况（`its channel is closed, connection is closed, or TCP connection is lost`）挂掉了，那么如何使得`RabbitMQ`重新将该任务添加到队列中？
+
+只需2步：
+- 回调函数中添加：`ch.basic_ack(delivery_tag=method.delivery_tag)`
+- `channel.basic_comsume`方法中的参数设置为：`no_ack=False`
+
+例如：
+```python
+def callback(ch, method, properties, body):
+    print(" [x] Received %r" % body)
+    
+    # 这里故意停止10秒使得断开连接
+    import time
+    time.sleep(10)
+    print 'ok'
+    
+    ch.basic_ack(delivery_tag = method.delivery_tag)
+
+channel.basic_consume(callback, queue='hello', no_ack=False)
+```
