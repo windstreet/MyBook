@@ -1,5 +1,7 @@
 # QuickStart
 
+这里以`简单模式`为例，即生产者发布消息到特定的某一个队列，消费者监听该特定的队列，一对一。
+
 ## 1、创建`connection`对象
 ```python
 import os
