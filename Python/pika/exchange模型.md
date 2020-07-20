@@ -42,3 +42,57 @@ channel.basic_consume(callback,
 
 channel.start_consuming()
 ```
+
+
+## 2、关键字发送 `direct`
+- 队列绑定关键字，发送者将数据根据关键字发送到消息exchange，exchange根据 关键字 判定应该将数据发送至指定队列。   
+
+```python
+# 消费者
+
+import sys
+
+channel = connection.channel()
+
+channel.exchange_declare(exchange='direct_logs', exchange_type='direct')  # exchange_type='direct'
+
+result = channel.queue_declare(exclusive=True)
+queue_name = result.method.queue
+
+severities = ['info', 'warning']
+# severities = sys.argv[1:]
+# if not severities:
+#     sys.stderr.write("Usage: %s [info] [warning] [error]\n" % sys.argv[0])
+#     sys.exit(1)
+
+for severity in severities:
+    channel.queue_bind(exchange='direct_logs',
+                       queue=queue_name,
+                       routing_key=severity)  # routing_key 路由键，绑定关键词，可以绑定多个
+
+print(' [*] Waiting for logs. To exit press CTRL+C')
+
+def callback(ch, method, properties, body):
+    print(" [x] %r:%r" % (method.routing_key, body))
+
+channel.basic_consume(callback,
+                      queue=queue_name,
+                      no_ack=True)
+
+channel.start_consuming()
+```
+
+```python
+# 生产者
+
+# 假设生产者中  severities = ['info', 'warning']
+channel_1 = connection.channel()
+channel_1.basic_publish(exchange='direct_logs',      # 交换机
+                        routing_key='info',          # 路由键：指定的队列名称 or 关键词匹配
+                        body='info info!')           # 值
+                        
+channel_2 = connection.channel()
+channel_2.basic_publish(exchange='direct_logs',   
+                        routing_key='warning',    
+                        body='warning warning!') 
+```
