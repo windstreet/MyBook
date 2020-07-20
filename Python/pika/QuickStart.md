@@ -131,3 +131,9 @@ channel.basic_qos(prefetch_count=1)
 # .
 # .
 ```
+
+
+---
+
+##### 参考：
+[python 全栈开发，Day140(RabbitMQ,基于scrapy-redis实现分布式爬虫)](https://www.cnblogs.com/xiao987334176/p/9766879.html)
