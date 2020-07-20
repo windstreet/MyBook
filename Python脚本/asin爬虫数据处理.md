@@ -68,9 +68,15 @@ def run(country_code=u'US',
 - 处理合并（挂单时间）后的数据      
      
 ```python
-def run():
+def run(fn_list,
+        out_dir=u'/Users/linrenwei/Desktop/data'):
     import os
     import csv
+    
+    if not os.path.exists(out_dir):
+        os.mkdir(out_dir)
+    else:
+        print u'目录已存在：{}'.format(out_dir)
 
     mapping = dict()
     with open(u'/Users/linrenwei/Desktop/asins.csv', u'r') as map_file:
@@ -78,36 +84,6 @@ def run():
         for row in reader:
             mapping[row.get('asin')] = row
 
-    out_dir = u'/Users/linrenwei/Desktop/data'
-    fn_list = [
-        u"/Users/linrenwei/Desktop/1/Science Kits & Toys.csv",
-        u"/Users/linrenwei/Desktop/1/Hammering & Pounding Toys.csv",
-        u"/Users/linrenwei/Desktop/1/Electronic Learning & Education Toys.csv",
-        u"/Users/linrenwei/Desktop/1/Baby Swimming Pool Floats.csv",
-        u"/Users/linrenwei/Desktop/1/Children's Swim Rings.csv",
-        u"/Users/linrenwei/Desktop/1/Kiddie Pools.csv",
-        u"/Users/linrenwei/Desktop/1/Lawn Water Slides.csv",
-        u"/Users/linrenwei/Desktop/1/Outdoor Water Play Sprinklers.csv",
-        u"/Users/linrenwei/Desktop/1/Pool Rafts & Inflatable Ride-ons.csv",
-        u"/Users/linrenwei/Desktop/1/Pool Toys.csv",
-        u"/Users/linrenwei/Desktop/1/Swimming Pool Basketball & Volleyball.csv",
-        u"/Users/linrenwei/Desktop/1/Water Balloons.csv",
-        u"/Users/linrenwei/Desktop/1/Toy Golf Products.csv",
-        u"/Users/linrenwei/Desktop/1/Toy Basketball Products.csv",
-        u"/Users/linrenwei/Desktop/1/Playground Fitness Equipment.csv",
-        u"/Users/linrenwei/Desktop/1/Play Set Ring & Trapeze Attachments.csv",
-        u"/Users/linrenwei/Desktop/1/Play Set Climber Attachments.csv",
-        u"/Users/linrenwei/Desktop/1/Basketball Products.csv",
-        u"/Users/linrenwei/Desktop/1/Outdoor Inflatable Bouncers.csv",
-        u"/Users/linrenwei/Desktop/1/Play & Swing Sets.csv",
-        u"/Users/linrenwei/Desktop/1/Play Set Swings.csv",
-        u"/Users/linrenwei/Desktop/1/Playground Equipment Parts & Hardware.csv",
-        u"/Users/linrenwei/Desktop/1/Hobby RC Car Crawlers Trucks.csv",
-        u"/Users/linrenwei/Desktop/1/Hobby RC Quadcopters & Multirotors.csv",
-        u"/Users/linrenwei/Desktop/1/Remote- & App-Controlled Figures & Robotic Toys.csv",
-        u"/Users/linrenwei/Desktop/1/Solar Power Kits.csv",
-        u"/Users/linrenwei/Desktop/1/Toy Vehicle Playsets.csv",
-    ]
     fieldnames = [
         'country_code', 'asin', 'pk', 'deliver_to', 'node_tree', 'images', 'image_main', 'title', 'brand',
         'review_rating', 'review_count', 'price', 'features', 'offers_count', 'seller', 'fulfillment_channel',
@@ -131,5 +107,14 @@ def run():
                 asin = item.get('asin')
                 if mapping.get(asin):
                     writer.writerow(mapping.get(asin))
+
+```
+
+```python
+from scripts.utils import csv_in_dir
+
+root_dir = u'/Users/linrenwei/Desktop/1'
+fns = list(csv_in_dir(root_dir))
+run(fns)
 
 ```

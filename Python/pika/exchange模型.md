@@ -96,3 +96,18 @@ channel_2.basic_publish(exchange='direct_logs',
                         routing_key='warning',    
                         body='warning warning!') 
 ```
+
+
+## 3、模糊匹配 `topic`
+
+- 在`topic`类型下，可以让`队列`绑定几个模糊的`关键字`；
+- 之后生产者将数据发送到`exchange`；
+- exchange将传入”路由值“和 ”关键字“进行匹配，匹配成功，则将数据发送到指定队列。
+
+| 生产者发送的路由键值 | 队列 | 结果 |
+| :----| ----: | :----: |
+| old.boy.python | old.* | 不匹配 |
+| old.boy.python | old.# | 匹配 |
+>注意：     
+`#` 表示可以匹配 `0个` 或 `多个` 单词         
+`*` 表示只能匹配 `一个` 单词
