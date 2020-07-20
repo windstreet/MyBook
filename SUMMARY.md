@@ -48,6 +48,7 @@
     - [pika](Python/pika/README.md)
         - [QuickStart](Python/pika/QuickStart.md)
         - [exchange模型](Python/pika/exchange模型.md)
+        - [基于RabbitMQ的RPC](Python/pika/基于RabbitMQ的RPC.md)
     - [flask](Python/flask/README.md)
     - [sqlalchemy](Python/sqlalchemy/README.md)
         - [创建表](Python/sqlalchemy/创建表.md)
