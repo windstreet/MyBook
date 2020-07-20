@@ -141,3 +141,8 @@ print(" [x] Requesting fib(30)")
 response = fibonacci_rpc.call(30)
 print(" [.] Got %r" % response)
 ```
+
+---
+
+##### 参考：
+[RabbitMQ-1](https://www.cnblogs.com/yuanchenqi/articles/8507109.html)
