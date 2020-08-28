@@ -42,7 +42,8 @@
 ---
 
 - [Python](Python/README.md)
-    - [虚拟环境](Python/虚拟环境.md)
+    - [虚拟环境](Python/README.md)
+        - [anaconda](Python/虚拟环境/anaconda.md)
     - [依赖包安装](Python/依赖包安装.md)
     - [编码](Python/编码.md)
     - [pika](Python/pika/README.md)

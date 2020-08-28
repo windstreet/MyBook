@@ -1,5 +1,6 @@
 # 虚拟环境
 
+## 1、conda
 ```bash
 # 创建环境
 pc4 conda create --name jd_assistant python=3.7
