@@ -7,6 +7,7 @@
 - [GitBook 从入门到放弃](GitBook 从入门到放弃/README.md)
     - [安装与使用](GitBook 从入门到放弃/安装与使用.md)
     - [插件](GitBook 从入门到放弃/插件.md)
+    - [异常记录](GitBook 从入门到放弃/异常记录.md)
 
 ---
 
@@ -42,7 +43,7 @@
 ---
 
 - [Python](Python/README.md)
-    - [虚拟环境](Python/README.md)
+    - [虚拟环境](Python/虚拟环境/README.md)
         - [anaconda](Python/虚拟环境/anaconda.md)
     - [依赖包安装](Python/依赖包安装.md)
     - [编码](Python/编码.md)
