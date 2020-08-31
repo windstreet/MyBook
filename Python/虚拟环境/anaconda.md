@@ -125,7 +125,7 @@
 
 ## 注意
 ```bash
-conda config --prepend envs_dirs /Users/(my name)/anaconda3/envs
+conda config --prepend envs_dirs /Users/(my name)/miniconda3/envs
 ```
 
 [Could not find conda environment](https://stackoverflow.com/questions/58369030/could-not-find-conda-environment)
