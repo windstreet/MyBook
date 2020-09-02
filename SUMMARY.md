@@ -58,6 +58,7 @@
 ---
 
 - [Django](Django/README.md)
+    - [quickstart](Django/quickstart.md)
     - [数据库迁移](Django/数据库迁移.md)
     - [Model](Django/Model/README.md)
         - [创建model.md](Django/Model/创建model.md)
