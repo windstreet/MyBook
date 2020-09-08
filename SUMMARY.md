@@ -89,6 +89,7 @@
 
 - [ElasticSearch](ElasticSearch/README.md)
     - [导出csv](ElasticSearch/导出csv.md)
+    - [批量添加](ElasticSearch/批量添加.md)
 
 ---
 
