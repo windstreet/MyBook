@@ -59,3 +59,34 @@ db.session.commit()
 #### 3、后台登录
 
 ![登录](/workspace/weld_backend/img/login.png)
+
+---
+
+# 对接前端
+
+#### 1、获取自己的ip给前端
+```bash
+ifconfig en0
+
+#en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+#	options=6b<RXCSUM,TXCSUM,VLAN_HWTAGGING,TSO4,TSO6>
+#	ether e0:d5:5e:1e:bd:ba
+#	inet6 fe80::c89:1a4e:9c1:107c%en0 prefixlen 64 secured scopeid 0x5
+#	inet 10.1.1.118 netmask 0xfffffe00 broadcast 10.1.1.255
+#	nd6 options=201<PERFORMNUD,DAD>
+#	media: autoselect (1000baseT <full-duplex,flow-control>)
+#	status: active
+
+# 这里 `10.1.1.118` 就是
+```
+
+
+#### 2、将本地的 cecp 服务端口给前端
+```
+http://0.0.0.0:8080/		# 8080 端口
+```
+
+#### 3、修改数据库配置
+表 `oauth2_client` 的 `_redirect_uris` 字段修改为 目标 `前端的ip` 地址：
+
+![对接前端](/workspace/weld_backend/img/front.png) 
