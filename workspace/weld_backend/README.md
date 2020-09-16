@@ -2,6 +2,61 @@
 
 ---
 
+# 数据库相关
+
+
+### 1、导入数据库到本地
+```bash
+pg_restore --job=4  /Users/admin/Desktop/weld_0326_local.pg_dump  -d weld_backend -O
+```
+>`/Users/admin/Desktop/weld_0326_local.pg_dump` 为数据库文件（含所在目录）     
+`weld_backend` 为本地数据库名称（自己起，先创建一个空的数据库）     
+
+
+### 2、shell中操作数据库
+```bash
+python manage.py shell
+```
+
+```python
+db.session.query(User.id).all()
+db.session.rollback()  # 回滚（报错记得回滚）
+User.query.filter(User.id==1).first()
+db.session.rollback()
+
+# 创建修改账号密码
+u = User.query.filter(User.id ==1).one()
+u.email  # 账号
+u.change_password('admin')  # 新密码
+u.status = 9  # 设为超级管理员账号
+db.session.commit()  # 提交后才生效
+```
+
+
+### 3、数据库迁移
+```bash
+# 生成migration
+python manage.py db migrate -m "test....."
+
+
+# 数据库升级
+python manage.py db upgrade head  # 升到最新版本
+
+
+# 数据库降级
+python manage.py db downgrade -1  # 降一个版本
+```
+>数据迁移注意事项
+> * 新的分支一般从 `master` 切：首先切到 master 分支，`git pull` 最新代码；
+> * 然后 `python manage.py db upgrade head` 将数据库升级到最新版本；
+> * 最后再从 master 切出你待开发的分支：`git checkout -b feature/test`
+> * 假如你的新分支涉及到数据库表单的修改，可以先在自己的分支里创建数据库迁移脚本：`python manage.py db migrate -m "test....."`（注意，这个新建的迁移脚本不要提交上去！！！）
+> * 然后再升级你的数据库：`python manage.py db upgrade head`
+> * 开发完后记得给你数据库降级：`python manage.py db downgrade -1`
+
+
+---
+
 # Pycharm 配置
 
 #### `Run/Debug Configurations`配置
