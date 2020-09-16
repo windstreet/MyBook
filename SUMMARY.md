@@ -31,6 +31,8 @@
         - [业务知识](workspace/weld_backend/业务知识/README.md)
             - [质检报告单](workspace/weld_backend/业务知识/质检报告单.md)
             - [排柜计划](workspace/weld_backend/业务知识/排柜计划.md)
+        - [项目编码规范](workspace/weld_backend/项目编码规范.md)
+        - [常见报错](workspace/weld_backend/常见报错.md)
     - [goblin](workspace/goblin/README.md)
         - [测试](workspace/goblin/测试.md)
     - [overlord](workspace/overlord/README.md)
