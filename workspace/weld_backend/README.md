@@ -2,6 +2,53 @@
 
 ---
 
+# Pycharm 配置
+
+#### `Run/Debug Configurations`配置
+```
+1.1）8080
+
+name: 8080
+Script path: /Users/admin/Desktop/workplace/weld_backend/api/manage.py
+parameters: runserver -h 0.0.0.0 -p 8000
+Environment variables: PYTHONUNBUFFERED=1
+Python interpreter: 选择相应虚拟环境的python
+Working directory: /Users/admin/Desktop/workplace/weld_backend/api
+
+
+
+1.2）8080 gunicorn
+
+name: 8080 gunicorn
+Script path: /Users/admin/.virtualenvs/weld_backend/bin/gunicorn
+parameters: -b 0.0.0.0:8080 --reload --log-level=debug wsgi:app -c guniconf.debug.py
+Environment variables: PYTHONUNBUFFERED=1
+Python interpreter: 选择相应虚拟环境的python
+Working directory: /Users/admin/Desktop/workplace/weld_backend/api
+```
+
+
+---
+
+# 启用 celery 服务
+
+```bash
+# 异步任务相关
+cd ~/Desktop/workplace/weld_backend/api
+celery -A celery_app.celery worker
+
+
+# 导出任务相关
+celery -A celery_app.celery worker -Q celery.export_task
+
+# 注意 celey 依赖 rabbitmq 和 redis
+brew services restart rabbitmq 
+brew services restart redis
+```
+
+
+---
+
 # 外部数据源说明
 
 ### 环境说明
