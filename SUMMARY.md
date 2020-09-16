@@ -28,6 +28,8 @@
         - [创建用户账号](workspace/aide_backend/创建用户账号.md)
         - [向装饰器传递参数](workspace/aide_backend/向装饰器传递参数.md)
     - [weld_backend](workspace/weld_backend/README.md)
+        - [flask_sqlalchemy](workspace/weld_backend/flask_sqlalchemy/README.md)
+            - [query](workspace/weld_backend/flask_sqlalchemy/query.md)
         - [业务知识](workspace/weld_backend/业务知识/README.md)
             - [质检报告单](workspace/weld_backend/业务知识/质检报告单.md)
             - [排柜计划](workspace/weld_backend/业务知识/排柜计划.md)
