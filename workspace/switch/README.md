@@ -55,7 +55,8 @@ find ~/workplace/switch/api -name "*.pyc" | xargs rm -rf
 ## 启动celery服务
 
 ```bash
-cd cd ~/workplace/switch/api && conda activate switch
+# switch 项目启动
+cd ~/workplace/switch/api && conda activate switch
 
 
 # 开4个进程分别执行
@@ -66,8 +67,9 @@ celery -A celery_app.celery worker -c 1 -Q celery_high
 celery -A celery_app.celery worker -c 1 -Q celery.watchdog --prefetch-multiplier=1 -n celery-watch.%h
 
 celery -A celery_app.celery beat --pidfile= -s /tmp/celery-schedule
+
+
+# cecp 项目启动
+cd ~/workplace/weld_backend/api && conda activate weld_backend
+celery -A celery_app.celery worker
 ```
-
-
-
-
