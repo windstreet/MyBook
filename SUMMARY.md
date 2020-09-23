@@ -33,6 +33,7 @@
         - [测试环境快速造数据](workspace/weld_backend/测试环境快速造数据.md)
         - [flask_sqlalchemy](workspace/weld_backend/flask_sqlalchemy/README.md)
             - [query](workspace/weld_backend/flask_sqlalchemy/query.md)
+            - [常用查询](workspace/weld_backend/flask_sqlalchemy/常用查询.md)
         - [业务知识](workspace/weld_backend/业务知识/README.md)
             - [质检报告单](workspace/weld_backend/业务知识/质检报告单.md)
             - [排柜计划](workspace/weld_backend/业务知识/排柜计划.md)
