@@ -39,6 +39,7 @@
             - [排柜计划](workspace/weld_backend/业务知识/排柜计划.md)
         - [项目编码规范](workspace/weld_backend/项目编码规范.md)
         - [编码记录](workspace/weld_backend/编码记录/README.md)
+            - [2873-采购单-简道云触发器](workspace/weld_backend/编码记录/2873-采购单-简道云触发器.md)
             - [3010-送货单-事业部小组字段](workspace/weld_backend/编码记录/3010-送货单-事业部小组字段.md)
             - [3016-库存清单-列表及导出添加事业部](workspace/weld_backend/编码记录/3016-库存清单-列表及导出添加事业部.md)
         - [常见报错](workspace/weld_backend/常见报错.md)
