@@ -38,6 +38,8 @@
             - [质检报告单](workspace/weld_backend/业务知识/质检报告单.md)
             - [排柜计划](workspace/weld_backend/业务知识/排柜计划.md)
         - [项目编码规范](workspace/weld_backend/项目编码规范.md)
+        - [编码记录](workspace/weld_backend/编码记录/README.md)
+            - [3010-送货单-事业部小组字段](workspace/weld_backend/编码记录/3010-送货单-事业部小组字段.md)
         - [常见报错](workspace/weld_backend/常见报错.md)
     - [goblin](workspace/goblin/README.md)
         - [测试](workspace/goblin/测试.md)
