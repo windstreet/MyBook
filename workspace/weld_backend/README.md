@@ -2,6 +2,35 @@
 
 ---
 
+# 项目与环境
+
+Python 版本: 2.7
+
+### 1、克隆项目
+```bash
+cd ~/Desktop/workplace/
+git clone https://*********/weld_backend.git 
+cd weld_backend/api
+```
+
+### 2、环境与依赖
+```bash
+# mkvirtualenv weld_backend --python=/System/Library/Frameworks/Python.framework/Versions/2.7		# 系统自带的		
+conda create --name weld_backend python=2.7 
+pip install -r requirements.txt
+# conda install
+```
+
+### 3、添加 `local_development.py` 文件
+```python
+# ~/Desktop/workplace/weld_backend/api/bapi/settings/local_development.py	
+
+# local_development 文件中修改为你本地的数据库（数据库没有的话要自己先创建）
+SQLALCHEMY_DATABASE_URI = 'postgresql://:@127.0.0.1:5432/weld_backend'	
+```
+
+---
+
 # 数据库相关
 
 
