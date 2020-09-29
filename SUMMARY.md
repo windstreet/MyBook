@@ -42,6 +42,7 @@
             - [2873-采购单-简道云触发器](workspace/weld_backend/编码记录/2873-采购单-简道云触发器.md)
             - [3010-送货单-事业部小组字段](workspace/weld_backend/编码记录/3010-送货单-事业部小组字段.md)
             - [3016-库存清单-列表及导出添加事业部](workspace/weld_backend/编码记录/3016-库存清单-列表及导出添加事业部.md)
+            - [3451-亚马逊订单发票](workspace/weld_backend/编码记录/3451-亚马逊订单发票.md)
         - [常见报错](workspace/weld_backend/常见报错.md)
     - [goblin](workspace/goblin/README.md)
         - [测试](workspace/goblin/测试.md)
