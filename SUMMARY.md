@@ -52,6 +52,7 @@
     - [switch](workspace/switch/README.md)
         - [初始化](workspace/switch/初始化.md)
         - [jdy通知消息到本地switch](workspace/switch/jdy通知消息到本地switch.md)
+        - [switch访问cecp本地数据库](workspace/switch/switch访问cecp本地数据库.md)
         - [质检入库单](workspace/switch/质检入库单.md)
         - [交互](workspace/switch/交互.md)
     - [document_assistant](workspace/document_assistant/README.md)
