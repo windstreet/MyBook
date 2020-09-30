@@ -51,6 +51,7 @@
         - [资源订阅跑起来](workspace/overlord/资源订阅跑起来.md)
     - [switch](workspace/switch/README.md)
         - [初始化](workspace/switch/初始化.md)
+        - [jdy通知消息到本地switch](workspace/switch/jdy通知消息到本地switch.md)
         - [质检入库单](workspace/switch/质检入库单.md)
         - [交互](workspace/switch/交互.md)
     - [document_assistant](workspace/document_assistant/README.md)
