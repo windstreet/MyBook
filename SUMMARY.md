@@ -46,6 +46,7 @@
             - [3451-亚马逊订单发票](workspace/weld_backend/编码记录/3451-亚马逊订单发票.md)
         - [常见报错](workspace/weld_backend/常见报错.md)
     - [goblin](workspace/goblin/README.md)
+        - [项目初始化](workspace/goblin/项目初始化.md)
         - [测试](workspace/goblin/测试.md)
     - [overlord](workspace/overlord/README.md)
         - [项目初始化](workspace/overlord/项目初始化.md)
