@@ -25,6 +25,8 @@
 - [workspace](workspace/README.md)
     - [新项目一般流程](workspace/新项目一般流程.md)
     - [在新设备开展旧项目](workspace/在新设备开展旧项目.md)
+    - [aide_scrapper](workspace/aide_scrapper/README.md)
+        - [review](workspace/aide_scrapper/review.md)
     - [aide_backend](workspace/aide_backend/README.md)
         - [与前端对接](workspace/aide_backend/与前端对接.md)
         - [创建用户账号](workspace/aide_backend/创建用户账号.md)
