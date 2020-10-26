@@ -51,6 +51,7 @@
     - [overlord](workspace/overlord/README.md)
         - [项目初始化](workspace/overlord/项目初始化.md)
         - [资源订阅跑起来](workspace/overlord/资源订阅跑起来.md)
+        - [授权](workspace/overlord/授权.md)
     - [switch](workspace/switch/README.md)
         - [初始化](workspace/switch/初始化.md)
         - [jdy通知消息到本地switch](workspace/switch/jdy通知消息到本地switch.md)
