@@ -88,6 +88,28 @@ def run(es_url=None, review_indexes=None):
             u'pk': pk,
             u'@timestamp': item.get(u'@timestamp')
         }
+        
+    def create_asin_info(item):
+        """
+        创建表 `asin_info_from_review`
+        """
+        country_code = item.get(u'country_code') or item.get(u'country')
+        asin_left = item.get(u'related_to') or item.get(u'father_asin')
+        pk = u'{}_{}'.format(country_code, asin_left)
+        return {
+            u'_op_type': u'index',
+            u'_type': u'doc',
+            u'_index': u'asin_info_from_review',
+            u'_id': pk,
+            u'pk': pk,
+            u'task_id': item.get(u'task_id'),
+            u'country_code': country_code,
+            u'asin': asin_left,
+            u'image': item.get(u'asin_images'),
+            u'brand': item.get(u'brand'),
+            u'@timestamp': item.get(u'@timestamp')
+        }
+        
 
     def create_asin_review_id_item(item):
         """
@@ -149,6 +171,7 @@ def run(es_url=None, review_indexes=None):
         """新数据"""
         unique_asin_group = set()
         unique_review_history = set()
+        unique_asin_info = set()
         unique_asin_review_id = set()
 
         for index in review_indexes:
@@ -164,6 +187,12 @@ def run(es_url=None, review_indexes=None):
                 if ar_item.get(u'pk') not in unique_asin_review_id:
                     unique_asin_review_id.add(ar_item.get(u'pk'))
                     yield ar_item
+                    
+                # asin_info_from_review 行项目
+                ai_item = create_asin_info(item)
+                if ai_item.get(u'pk') not in unique_asin_info:
+                    unique_asin_info.add(ai_item.get(u'pk'))
+                    yield ai_item
 
                 # review_history 行项目
                 r_item = create_review_item(item)
