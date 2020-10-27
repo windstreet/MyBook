@@ -204,3 +204,56 @@ def run(es_url=None, review_indexes=None):
     print(u'============= end =============')
 
 ```
+
+
+# 创建测试数据
+```python
+from elasticsearch import Elasticsearch
+
+es = Elasticsearch('http://localhost:9200')
+action = {
+    "tags": [
+        "crawler",
+        "new_review"
+    ],
+    "@timestamp": "2020-10-26T09:07:26.580Z",
+    "data": {
+        "author_profile_id": None,
+        "mask_code": "c10dbe45324ea264ba286f825441021a",
+        "helpful_count": 1,
+        "country": "UK",
+        "author_profile_url": None,
+        "videos": [
+
+        ],
+        "asin_images": "https://m.media-amazon.com/images/I/41GobQy2ooL._AC_US60_SCLZZZZZZZ__.jpg",
+        "size": None,
+        "style": None,
+        "verified_purchase": "True",
+        "father_asin": "B07WLWN2ZT",
+        "reviewed_in": "the United States",
+        "issued_at": "2020-10-24T00:00:00",
+        "is_local": False,
+        "brand": "TONOR",
+        "author": "Jaeyoung In",
+        "images": [
+
+        ],
+        "star": 1,
+        "title": "Disappointing experience with this broken mic",
+        "customer_reviews_url": "https://www.amazon.co.uk/gp/customer-reviews/R3VUZST7FHHPXN",
+        "color": None,
+        "id": "R3VUZST7FHHPXN",
+        "asin": "B07WLWN2ZT",
+        "content_text": "The mic was not working at all from the beginning.  They sent a completely broken one.  Had to spend days to figure out if it will finally work.  Amateur company wasted my valuable time..",
+        "asin_url": "https://www.amazon.co.uk/gp/product/B07WLWN2ZT?ie=UTF8"
+    },
+    "@version": "1",
+    "action_type": "worker_init",
+    "type": "result",
+    "spider": "amazon_reviews",
+    "lowercase_country": "uk",
+    "task_id": "seller_product_all_critical_review_20201026"
+}
+es.index(index="index_test", doc_type="doc", body=action)
+```
