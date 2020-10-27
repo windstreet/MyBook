@@ -142,7 +142,7 @@ def run(es_url=None, review_indexes=None):
             u"review_id": review_id,
             u"images": item.get(u"images"),
             u"videos": item.get(u"videos"),
-            u"@timestamp": item.get('@timestamp'),
+            u"@timestamp": item.get(u'@timestamp'),
         }
 
     def data_generator():
