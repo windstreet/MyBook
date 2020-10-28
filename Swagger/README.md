@@ -1,7 +1,11 @@
 # Swagger - API表达工具
 
 ### 1、前言
-`Swagger`是全球最大的 `OpenAPI规范`（OAS）API开发工具框架，支持从设计和文档到测试和部署的整个API生命周期的开发。
+- `Swagger`是遵守`OpenAPI规范（OAS）`的世界上最大的API框架开发工具，它支持从设计和文档 到 测试和部署的整个API生命周期的开发。
+- 它提供了许多试用的工具来帮助开发者进行接口开发，如：
+    - 及时接口文档编写工具`swagger-editor`
+    - 前端展示`swagger-ui`
+    - 代码自动生成工具`swagger-codegen`
 
 ### 2、什么是`API`
 API（Application Programming Interface, 应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。
