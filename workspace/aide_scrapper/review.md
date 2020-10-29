@@ -166,6 +166,11 @@ def run(es_url=None, review_indexes=None):
             u"videos": item.get(u"videos"),
             u"@timestamp": item.get(u'@timestamp'),
         }
+        
+    def create_review_item_notify(item):
+        item = create_review_item(item)
+        item[u'_index'] = u'cecp_review_notify'
+        return item
 
     def data_generator():
         """新数据"""
@@ -199,6 +204,7 @@ def run(es_url=None, review_indexes=None):
                 if r_item.get(u'pk') not in unique_review_history:
                     unique_review_history.add(r_item.get(u'pk'))
                     yield r_item
+                    yield create_review_item_notify(r_item)
 
     bulk(es, data_generator())
     print(u'============= end =============')
