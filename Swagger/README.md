@@ -20,4 +20,5 @@ API（Application Programming Interface, 应用程序编程接口）是一些预
 ---
 参考：    
 [API表达工具----swagger](https://blog.csdn.net/zmh458/article/details/78766895)       
-[Swagger使用教程大全，从入门到精通](https://www.cnblogs.com/shamo89/p/7680629.html)       
+[Swagger使用教程大全，从入门到精通](https://www.cnblogs.com/shamo89/p/7680629.html)      
+[Swagger的快速入门](https://fallenk.github.io/2018/11/28/Swagger%E7%9A%84%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/)
