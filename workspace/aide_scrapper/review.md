@@ -19,7 +19,7 @@ def run(es_url=None, review_indexes=None):
         ]
 
     es_url = es_url if es_url else u'http://localhost:9200'
-    es = Elasticsearch(es_url)
+    es = Elasticsearch(es_url, timeout=60)
     print('============= start =============')
 
     def travel_es(**kwargs):
