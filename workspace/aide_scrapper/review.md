@@ -159,7 +159,7 @@ def run(es_url=None, review_indexes=None):
             u"size": item.get(u"size"),
             u"style": item.get(u"style"),
             u"color": item.get(u"color"),
-            u"verified_purchase": item.get(u"verified_purchase"),
+            u"verified_purchase": True if item.get(u"verified_purchase") else False,
             u"content_text": item.get(u"content_text"),
             u"review_id": review_id,
             u"images": item.get(u"images"),
