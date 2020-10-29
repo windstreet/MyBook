@@ -38,7 +38,7 @@
     // 接口显示页面
     app.use('/static', express.static('public'));
     app.listen(3000, function () {
-    console.log('app listening on port 3000!');
+        console.log('app listening on port 3000!');
     });
     
     ```
@@ -53,4 +53,6 @@
 ---
 
 参考：    
+[swagger-ui生成api文档并进行测试](https://www.cnblogs.com/shamo89/p/7681085.html)
+
 [让接口测试成为合格的桥梁——本地搭建 Swagger-UI 环境搭建](https://testerhome.com/topics/8168)
