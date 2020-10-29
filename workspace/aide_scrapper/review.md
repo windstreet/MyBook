@@ -139,6 +139,13 @@ def run(es_url=None, review_indexes=None):
         country_code = item.get(u'country_code') or item.get(u'country')
         review_id = item.get(u'review_id') or item.get(u'id')
         pk = u'{}_{}'.format(country_code, review_id)
+        
+        helpful_count = item.get(u"helpful_count")
+        if helpful_count:
+            if isinstance(helpful_count, str):
+                if len(helpful_count) > 1:
+                    helpful_count = 1
+        
         return {
             u'_op_type': u'index',
             u'_type': u'doc',
@@ -155,7 +162,7 @@ def run(es_url=None, review_indexes=None):
             u"issued_at": item.get(u"issued_at"),
             u"reviewed_in": item.get(u"reviewed_in"),
             u"is_local": item.get(u"is_local"),
-            u"helpful_count": item.get(u"helpful_count"),
+            u"helpful_count": helpful_count,
             u"size": item.get(u"size"),
             u"style": item.get(u"style"),
             u"color": item.get(u"color"),
