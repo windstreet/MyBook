@@ -79,6 +79,7 @@
     - [flask](Python/flask/README.md)
     - [sqlalchemy](Python/sqlalchemy/README.md)
         - [创建表](Python/sqlalchemy/创建表.md)
+    - [README](Python/twisted/README.md)
     - [unittest 单元测试](Python/unittest 单元测试.md)
 
 ---
@@ -113,6 +114,7 @@
 ---
 
 - [ElasticSearch](ElasticSearch/README.md)
+    - [curl](ElasticSearch/curl.md)
     - [导入csv](ElasticSearch/导入csv.md)
     - [导出csv](ElasticSearch/导出csv.md)
     - [批量添加](ElasticSearch/批量添加.md)
