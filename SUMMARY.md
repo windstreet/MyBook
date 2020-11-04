@@ -111,6 +111,7 @@
 ---
 
 - [RabbitMQ](RabbitMQ/README.md)
+    - [AMQP协议](RabbitMQ/AMQP协议.md)
 
 ---
 
