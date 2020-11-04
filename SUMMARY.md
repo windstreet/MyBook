@@ -106,6 +106,7 @@
         - [视图view](SQL/高级部分/视图view.md)
         - [函数](SQL/高级部分/函数.md)
         - [触发器](SQL/高级部分/触发器.md)
+    - [PostgreSQL版本升级及安装](SQL/PostgreSQL版本升级及安装.md)
 
 ---
 
