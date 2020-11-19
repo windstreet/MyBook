@@ -4,18 +4,18 @@
 每台计算机上只需要配置一次，程序升级时会保留配置信息。      
 你可以在任何时候再次通过运行命令来修改它们。     
 
-### `git config` 工具
+### 一、git config工具
 
-帮助设置 `控制Git外观和行为` 的配置变量。
+帮助设置 控制Git外观和行为 的配置变量
 
 这些变量存储在三个不同的位置：
 
-1. `/etc/gitconfig 文件`：包含系统上每一个用户及他们仓库的通用配置。如果使用带有`--system`选项的`git config`时，它会从此文件读写配置变量。
+    1. `/etc/gitconfig 文件`：包含系统上每一个用户及他们仓库的通用配置。如果使用带有`--system`选项的`git config`时，它会从此文件读写配置变量。
 
-2. `~/.gitconfig` 或 `~/.config/git/config 文件`：只针对当前用户。如果使用带有`--global`选项的`git config`时，它会从此文件读写配置变量。
+    2. `~/.gitconfig` 或 `~/.config/git/config 文件`：只针对当前用户。如果使用带有`--global`选项的`git config`时，它会从此文件读写配置变量。
 
-3. `.git/config` 当前使用仓库的 Git 目录中的 config 文件：针对当前仓库。
+    3. `.git/config` 当前使用仓库的 Git 目录中的 config 文件：针对当前仓库。
 
->注解：
-每一个级别覆盖上一级别的配置，所以 `.git/config` 的配置变量会覆盖 `/etc/gitconfig` 中的配置变量。【 优先级 3 > 2 > 1 】
+    注解：
+    每一个级别覆盖上一级别的配置，所以 `.git/config` 的配置变量会覆盖 `/etc/gitconfig` 中的配置变量。【 优先级 3 > 2 > 1 】
   
