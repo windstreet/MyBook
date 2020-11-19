@@ -48,6 +48,7 @@
             - [3010-送货单-事业部小组字段](workspace/weld_backend/编码记录/3010-送货单-事业部小组字段.md)
             - [3016-库存清单-列表及导出添加事业部](workspace/weld_backend/编码记录/3016-库存清单-列表及导出添加事业部.md)
             - [3451-亚马逊订单发票](workspace/weld_backend/编码记录/3451-亚马逊订单发票.md)
+            - [差评通知](workspace/weld_backend/编码记录/差评通知.md)
         - [常见报错](workspace/weld_backend/常见报错.md)
     - [goblin](workspace/goblin/README.md)
         - [项目初始化](workspace/goblin/项目初始化.md)
