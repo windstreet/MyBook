@@ -222,3 +222,52 @@ select date_trunc('hour', timestamp'2014-01-28 23:40:14.761216+08');
 
 ```
 
+### Tips
+
+##### 1、BETWEEN
+```sql
+a BETWEEN x AND y 等效于 a >= x AND a <= y
+
+a NOT BETWEEN x AND y 等效于 a < x OR a > y
+```
+
+##### 2、array_to_string 拼接多条记录的值
+```sql
+select array_to_string(array(select nickname from users where id < 100), ';')
+```
+
+##### 3、string_agg 聚合函数，用于将字段拼接成字符串,相当于对string进行sum
+
+| id  | area_name | 
+| --- | --- | 
+| 1 | 北京 | 
+| 1 | 河南 | 
+| 2 | 河南 | 
+
+```sql
+select id, string_agg(area_name, ';') as area_names from users group by id
+```
+
+| id  | area_name | 
+| --- | --- | 
+| 1 | 北京;河南 | 
+| 2 | 河南 | 
+
+
+再例如：
+```sql
+select parent_area_code,
+       string_agg(name,';'),
+       string_agg(name || '_' || area_code , ';')
+from locations where parent_area_code is not null
+group by parent_area_code
+```
+
+##### 4、array_agg 列转数组
+
+上例也可以用 array_agg + array_to_string 间接实现：
+```sql
+select id, array_to_string(array_agg(area_name), ';') as area_names
+from users group by id
+```
+
