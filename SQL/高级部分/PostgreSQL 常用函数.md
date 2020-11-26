@@ -271,3 +271,6 @@ select id, array_to_string(array_agg(area_name), ';') as area_names
 from users group by id
 ```
 
+---
+
+[PostgreSQL 常用函数](http://duyw.github.io/blog/2014/01/29/postgresql-chang-yong-han-shu/)
