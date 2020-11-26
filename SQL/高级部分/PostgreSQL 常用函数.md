@@ -186,3 +186,39 @@ D      一周里的日子(1-7；周日是1)
 W      一个月里的周数(1-5)(第一周从该月第一天开始)
 WW     一年里的周数(1-53)(第一周从该年的第一天开始)
 ```
+
+
+### 五、日期/时间函数
+
+```sql
+-- 当前时间： localtime, localtimestamp, now(), current_time
+select localtime, localtimestamp, now(), current_time;
+--00:06:12.109832 | 2014-01-29 00:06:12.109832 | 2014-01-29 00:06:12.109832+08 | 00:06:12.109832+08
+
+
+-- 当前日期： current_date
+select current_date; -- 2014-01-28
+
+
+-- 当前日期和时间： current_timestamp
+select current_timestamp; -- 2014-01-28 23:40:14.761216+08
+
+
+-- 获取子域： date_part(text, timestamp), 等同于 extract(field from timestamp)
+select date_part('year',   timestamp'2014-01-28 23:40:14.761216+08'); -- 2014
+select date_part('month',  timestamp'2014-01-28 23:40:14.761216+08'); -- 1
+select date_part('day',    timestamp'2014-01-28 23:40:14.761216+08'); -- 28
+select date_part('week',   timestamp'2014-01-28 23:40:14.761216+08'); -- 5
+select date_part('hour',   timestamp'2014-01-28 23:40:14.761216+08'); -- 23
+select date_part('minute', timestamp'2014-01-28 23:40:14.761216+08'); -- 40
+select date_part('second', timestamp'2014-01-28 23:40:14.761216+08'); -- 14.761216
+
+select extract(year from timestamp'2014-01-28 23:40:14.761216+08');  -- 2014
+
+
+-- 截断成指定的精度: date_trunc(text, timestamp)
+select date_trunc('hour', timestamp'2014-01-28 23:40:14.761216+08');
+-- 2014-01-28 23:00:00
+
+```
+
