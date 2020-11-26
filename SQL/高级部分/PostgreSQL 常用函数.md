@@ -136,8 +136,17 @@ string NOT SIMILAR TO pattern [ESCAPE escape-character]
 ```
 它和LIKE非常类似，支持LIKE的通配符 (`_`和`%`) 且保持其原意。除此之外，它还支持一些自己独有的元字符，如：
     - `|` 标识选择(两个候选之一)。
-    - 表示重复前面的项零次或更多次。
-    - 表示重复前面的项一次或更多次。
+    - `*` 表示重复前面的项零次或更多次。
+    - `+` 表示重复前面的项一次或更多次。
     - 可以使用圆括弧 `()` 把项组合成一个逻辑项。 
-          
-一个方括弧表达式[…]声明一个字符表，就像POSIX正则表达式一样。
+    - 一个方括弧表达式 `[…]` 声明一个字符表，就像POSIX正则表达式一样。
+
+```sql
+select 'abc' SIMILAR TO 'abc';            -- true
+select 'abc' SIMILAR TO 'a';              -- false
+select 'abc' SIMILAR TO '%(b|d)%';        -- true
+select 'abc' SIMILAR TO '(b|c)%';         -- false
+select 'aaa' SIMILAR TO '(a|c)*';         -- true
+select 'b' SIMILAR TO 'b(a|c)*';          -- true
+select 'b' SIMILAR TO 'b(a|c)+';          -- false
+```
