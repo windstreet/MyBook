@@ -117,3 +117,27 @@ select split_part('i||love||you', '||', 2); -- love
 ```
 
 
+### 四、模式匹配
+
+- `Like`
+```sql
+'abc' LIKE 'abc'    true
+'abc' LIKE 'a%'     true
+'abc' LIKE '_b_'    true
+'abc' LIKE 'c'      false  
+```
+>下划线 `_` 代表匹配任何单个字符，而一个百分号 `%` 匹配任何零或更多字符。
+
+- `SIMILAR TO`正则表达式     
+根据模式是否匹配给定的字符串而返回真或者假。
+```sql
+string SIMILAR TO pattern [ESCAPE escape-character]
+string NOT SIMILAR TO pattern [ESCAPE escape-character]
+```
+它和LIKE非常类似，支持LIKE的通配符 (`_`和`%`) 且保持其原意。除此之外，它还支持一些自己独有的元字符，如：
+    - `|` 标识选择(两个候选之一)。
+    - 表示重复前面的项零次或更多次。
+    - 表示重复前面的项一次或更多次。
+    - 可以使用圆括弧 `()` 把项组合成一个逻辑项。 
+          
+一个方括弧表达式[…]声明一个字符表，就像POSIX正则表达式一样。
