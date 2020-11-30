@@ -102,6 +102,7 @@
         - [简介](SQL/命令行工具psql/简介.md)
     - [基础部分](SQL/基础部分/README.md)
         - [数据库database](SQL/基础部分/数据库database.md)
+        - [数据类型](SQL/基础部分/数据类型.md)
         - [表table](SQL/基础部分/表table.md)
         - [模式、架构schema](SQL/基础部分/模式、架构schema.md)
         - [基础操作](SQL/基础部分/基础操作.md)
