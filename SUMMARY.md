@@ -96,27 +96,6 @@
 
 ---
 
-- [sql](SQL/README.md)
-    - [关系数据库概述](SQL/关系数据库概述.md)
-    - [命令行工具psql](SQL/命令行工具psql/README.md)
-        - [简介](SQL/命令行工具psql/简介.md)
-    - [基础部分](SQL/基础部分/README.md)
-        - [数据库database](SQL/基础部分/数据库database.md)
-        - [数据类型](SQL/基础部分/数据类型.md)
-        - [表table](SQL/基础部分/表table.md)
-        - [模式、架构schema](SQL/基础部分/模式、架构schema.md)
-        - [基础操作](SQL/基础部分/基础操作.md)
-        - [条件查询](SQL/基础部分/条件查询.md)
-        - [连接](SQL/基础部分/连接.md)
-    - [高级部分](SQL/高级部分/README.md)
-        - [视图view](SQL/高级部分/视图view.md)
-        - [函数](SQL/高级部分/函数.md)
-        - [PostgreSQL 常用函数](SQL/高级部分/PostgreSQL 常用函数.md)
-        - [触发器](SQL/高级部分/触发器.md)
-    - [PostgreSQL版本升级及安装](SQL/PostgreSQL版本升级及安装.md)
-
----
-
 - [RabbitMQ](RabbitMQ/README.md)
     - [AMQP协议](RabbitMQ/AMQP协议.md)
 
