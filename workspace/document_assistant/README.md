@@ -3,7 +3,7 @@
 ## 测试环境
 
 ```bash
-cd code/document_assistant/assistant
+cd /code/document_assistant/assistant
 
 sudo git pull
 
